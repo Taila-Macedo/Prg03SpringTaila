@@ -16,7 +16,7 @@ import jakarta.persistence.MappedSuperclass;
  * Classe base para todas as entidades persistentes no banco.
  * Fornece um ID único e auto-gerado para cada registro.
  */
-@MappedSuperclass
+@MappedSuperclass //define que os atributos desta classe serão herdados pelas entidades, sem gerar uma tabela própria.
 public class PersistenceEntity {
 
     @Id // Define o campo como chave primária

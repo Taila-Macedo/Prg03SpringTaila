@@ -4,16 +4,19 @@ import br.com.ifba.infrastructure.entity.PersistenceEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 // Define a entidade Curso mapeada para a tabela "curso" no banco
 @Entity
 @Table(name = "curso")
+@NoArgsConstructor //gera construtor vazio
+@Data //gera getters, setters
+@AllArgsConstructor //gera construtor com tudo
+@EqualsAndHashCode(callSuper = false)
 public class Curso extends PersistenceEntity {
-    
-    // Construtor padrão
-    public Curso() {
-    
-    }
 
      // Nome do curso, obrigatório e com máximo de 120 caracteres
     @Column(nullable = false, length = 120)
@@ -30,36 +33,4 @@ public class Curso extends PersistenceEntity {
     // Indica se o curso está ativo
     @Column(nullable = false)
     private boolean ativo;
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getCargaHoraria() {
-        return cargaHoraria;
-    }
-
-    public void setCargaHoraria(int cargaHoraria) {
-        this.cargaHoraria = cargaHoraria;
-    }
-
-    public String getCodigoCurso() {
-        return codigoCurso;
-    }
-
-    public void setCodigoCurso(String codigoCurso) {
-        this.codigoCurso = codigoCurso;
-    }
-    
-    public boolean isAtivo() {
-    return ativo;
-    }
-
-    public void setAtivo(boolean ativo) {
-    this.ativo = ativo;
-    }
 }
